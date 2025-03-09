@@ -16,11 +16,6 @@ def get_numerical_data(data):
     answer_length_term = 10
     qp_precision_term = 10
 
-    numerical_data = {
-        'number_of'
-    }
-
-
     sample_value = defaultdict(float)
     sample_num = defaultdict(int)
 
@@ -31,8 +26,7 @@ def get_numerical_data(data):
         'qp_precision': {r: 0 for r in range(0, qp_precision_term * 10, qp_precision_term)},
     }
 
-    # for e in data.data:
-    for e in data['data']:
+    for e in data.data:
         sample_num['passage'] += len(e['paragraphs'])
         for p in e['paragraphs']:
             passage_length = len(p['context'])
@@ -71,9 +65,12 @@ def get_numerical_data(data):
     sample_value['avg_answer_length'] = sample_value['avg_answer_length'] / sample_num['answerable_queries']
     sample_value['avg_qp_precision'] = sample_value['avg_qp_precision'] / sample_num['all_queries']
 
-    sample_value['']
+    numerical_data = {
+        'sample_num_info': sample_value,
+        'distribution': distributions
+    }
 
-    return sample_num
+    return numerical_data
 
 
 def main():
