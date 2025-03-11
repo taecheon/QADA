@@ -16,8 +16,19 @@ def get_numerical_data(data):
     answer_length_term = 10
     qp_precision_term = 10
 
-    sample_value = defaultdict(float)
-    sample_num = defaultdict(int)
+    sample_value = {
+        'avg_passage_length': 0.0,
+        'avg_query_length': 0.0,
+        'avg_answer_length': 0.0,
+        'avg_qp_precision': 0.0
+    }
+    sample_num = {
+        'all_passages': 0,
+        'table_passages': 0,
+        'all_queries': 0,
+        'answerable_queries': 0,
+        'unanswerable_queries': 0,
+    }
 
     distributions = {
         'passage_length': {r: 0 for r in range(0, passage_length_term * 11, passage_length_term)},
