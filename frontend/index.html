@@ -13,12 +13,19 @@
     <input type="file" id="jsonFileInput" accept=".json">
 
     <h2>기본 정보</h2>
+    <h5>QP Precision: <text id="avgQpPrecision"></text></h5>
     <table border="1">
-        <tr><th>항목</th><th>값</th></tr>
-        <tr><td>평균 Passage 길이</td><td id="avgPassageLength"></td></tr>
-        <tr><td>평균 Query 길이</td><td id="avgQueryLength"></td></tr>
-        <tr><td>평균 Answer 길이</td><td id="avgAnswerLength"></td></tr>
-        <tr><td>평균 QP Precision</td><td id="avgQpPrecision"></td></tr>
+        <tr><td colspan="2">Passage</td></tr>
+        <tr><td># of all passages</td><td id="numberOfAllPassages"></td></tr>
+        <tr><td># of table passages</td><td id="numberOfTablePassages"></td></tr>
+        <tr><td>average length of all passages</td><td id="avgPassageLength"></td></tr>
+        <tr><td colspan="2">Query</td></tr>
+        <tr><td># of all queries</td><td id="numberOfAllQueries"></td></tr>
+        <tr><td># of answerable queries</td><td id="numberOfAnswerableQueries"></td></tr>
+        <tr><td># of unanswerable queries</td><td id="numberOfUnanswerableQueries"></td></tr>
+        <tr><td>average length of all queries</td><td id="avgQueryLength"></td></tr>
+        <tr><td colspan="2">Answer</td></tr>
+        <tr><td>average length of answer</td><td id="avgAnswerLength"></td></tr>
     </table>
 
     <h2>데이터 분포</h2>

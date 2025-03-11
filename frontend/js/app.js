@@ -32,10 +32,17 @@ async function handleFileUpload(event) {
 
 // ✅ 1. 기본 정보 표시
 function displayData(data) {
-    document.getElementById("avgPassageLength").innerText = data.sample_num_info.avg_passage_length.toFixed(2);
-    document.getElementById("avgQueryLength").innerText = data.sample_num_info.avg_query_length.toFixed(2);
-    document.getElementById("avgAnswerLength").innerText = data.sample_num_info.avg_answer_length.toFixed(2);
-    document.getElementById("avgQpPrecision").innerText = data.sample_num_info.avg_qp_precision.toFixed(2);
+    document.getElementById("numberOfAllPassages").innerText = data.sample_num_info.all_passages;
+    document.getElementById("numberOfTablePassages").innerText = data.sample_num_info.table_passages;
+    document.getElementById("avgPassageLength").innerText = data.sample_value_info.avg_passage_length.toFixed(2);
+
+    document.getElementById("numberOfAllQueries").innerText = data.sample_num_info.all_queries;
+    document.getElementById("numberOfAnswerableQueries").innerText = data.sample_num_info.answerable_queries;
+    document.getElementById("numberOfUnanswerableQueries").innerText = data.sample_num_info.unanswerable_queries;
+    document.getElementById("avgQueryLength").innerText = data.sample_value_info.avg_query_length.toFixed(2);
+
+    document.getElementById("avgAnswerLength").innerText = data.sample_value_info.avg_answer_length.toFixed(2);
+    document.getElementById("avgQpPrecision").innerText = data.sample_value_info.avg_qp_precision.toFixed(2);
 }
 
 // ✅ 2. 차트 그리기

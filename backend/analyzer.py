@@ -27,9 +27,11 @@ def get_numerical_data(data):
     }
 
     for e in data.data:
-        sample_num['passage'] += len(e['paragraphs'])
+        sample_num['all_passages'] += len(e['paragraphs'])
         for p in e['paragraphs']:
             passage_length = len(p['context'])
+            if '<table' in p['context']:
+                sample_num['table_passages'] += 1
             sample_value['avg_passage_length'] += passage_length
             tmp_key = _get_distribution_key(passage_length, passage_length_term, passage_length_term * 10)
             distributions['passage_length'][tmp_key] += 1
@@ -60,13 +62,14 @@ def get_numerical_data(data):
                 tmp_key = _get_distribution_key(qp_precision, qp_precision_term, qp_precision_term * 9)
                 distributions['qp_precision'][tmp_key] += 1
 
-    sample_value['avg_passage_length'] = sample_value['avg_passage_length'] / sample_num['passage']
+    sample_value['avg_passage_length'] = sample_value['avg_passage_length'] / sample_num['all_passages']
     sample_value['avg_query_length'] = sample_value['avg_query_length'] / sample_num['all_queries']
     sample_value['avg_answer_length'] = sample_value['avg_answer_length'] / sample_num['answerable_queries']
     sample_value['avg_qp_precision'] = sample_value['avg_qp_precision'] / sample_num['all_queries']
 
     numerical_data = {
-        'sample_num_info': sample_value,
+        'sample_num_info': sample_num,
+        'sample_value_info': sample_value,
         'distribution': distributions
     }
 
