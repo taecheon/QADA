@@ -73,6 +73,7 @@ function createBarChart(canvasId, label, dataset) {
         },
         options: {
             responsive: true,
+//            maintainAspectRatio: false, // ✅ 비율 유지하지 않고 크기 강제 조정
             scales: {
                 y: {
                     beginAtZero: true

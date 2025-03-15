@@ -10,36 +10,66 @@ h1, h2 {
     color: #333;
 }
 
+/* 파일 업로드 버튼 스타일 */
 input[type="file"] {
     margin: 10px;
-    padding: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
 }
 
+/* ✅ 표 가독성 개선 */
 table {
-    width: 60%;
-    margin: 10px auto;
+    width: 70%; /* 표를 조금 더 넓게 */
+    margin: 20px auto;
     border-collapse: collapse;
     background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* ✅ 가벼운 그림자 추가 */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-table, th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
+th, td {
+    border: 1px solid #ddd; /* ✅ 선을 연하게 */
+    padding: 12px; /* ✅ 패딩을 넉넉하게 */
     text-align: center;
 }
 
+th {
+    background-color: #007BFF; /* ✅ 헤더 색 강조 */
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* ✅ 표 안 숫자 강조 */
+td:nth-child(2) {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* ✅ 그래프 크기 줄이기 */
+canvas {
+    max-width: 60%; /* ✅ 기존 80% → 60%로 축소 */
+    height: 300px; /* ✅ 그래프 높이를 제한 */
+    margin: 20px auto;
+    display: block;
+}
+
+/* ✅ 결과 데이터 스타일 */
 pre {
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 10px;
-    width: 60%;
+    padding: 12px;
+    width: 70%;
     margin: 0 auto;
     text-align: left;
     white-space: pre-wrap;
-}
-
-canvas {
-    max-width: 80%;
-    margin: 20px auto;
-    display: block;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
